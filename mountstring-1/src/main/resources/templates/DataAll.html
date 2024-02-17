@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+     body{
+     align-items: center;
+     justify-content: center ;
+     margin-top: 20% ;
+     margin-left: 20% ;
+     }
+
+    .symbol {
+        font-size: 20px; /* Adjust the size of the symbol as needed */
+        cursor: pointer; /* Change cursor to indicate it's clickable */
+    }
+    
+    table {
+	width: 300px;
+	height: 250px;
+	font-size: 16px;
+}
+
+span{
+align-items: center;
+justify-content: center;
+margin-left: 12px;
+}
+form {
+	margin-bottom: 10px;
+}
+    
+</style>
+
+</head>
+<body>
+
+
+<form id="salary-form" action="/fetchBySalaryRange" method="get">
+        <label for="salary-range">Select Salary Range:</label>
+        <select id="salary-range" name="range">
+            <option value="1000-5000">1000 - 5000</option>
+            <option value="5000-10000">5000 - 10000</option>
+            <option value="10000-50000">10000 - 50000</option>
+            <option value="50000-100000">50000 - 100000</option>
+        </select>
+        <button type="submit">Fetch Employees</button>
+    </form>
+      
+    <form id="role-form" action="/fetchByRole" method="get">
+    <label for="role-select">Select Role:</label>
+    <select id="role-select" name="role">
+        <option value="front end">FRONT_END</option>
+        <option value="developer">DEVELOPER</option>
+        <option value="tester">TESTER</option>
+        <!-- Add more options as needed -->
+    </select>
+    <button type="submit">Fetch Employees</button>
+</form>
+
+<table border>
+		<thead>
+			<tr>
+				<th>EMP_ID</th>
+				<th>Name</th>
+				<th>role</th>
+				<th>salary</th>
+				<th>email</th>
+				<th>Action</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="emp:${emplyee}">
+				<td th:text="${emp.id}"></td>
+				<td th:text="${emp.name}"></td>
+				<td th:text="${emp.role}"></td>
+				<td th:text="${emp.salary}"></td>
+				<td th:text="${emp.email}"></td>
+				
+   <td class="action-cell">
+    <span class="symbol" onclick="toggleOptions(this)">&#x270E;</span> <!-- This symbol represents a wrench icon -->
+    <div class="options" style="display: none;">
+        <a th:href="@{/showFormForUpdate/{id}(id=${emp.id})}" class="btn btn-primary update-option">Update</a>
+        <a th:href="@{/deleteEmployee/{id}(id=${emp.id})}" class="btn btn-primary delete-option">Delete</a>
+        <a th:href="@{/viewEmployee/{id}(id=${emp.id})}" class="btn btn-primary view-option">View</a>
+    </div>
+</td>
+
+<script>
+    function toggleOptions(symbol) {
+        var options = symbol.parentNode.querySelector('.options');
+        options.style.display = options.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+
+
+				
+           </tr>
+         </tbody>
+    </table>
+    
+   
+
+</body>
+</html>

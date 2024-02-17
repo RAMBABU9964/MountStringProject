@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+
+
+input {
+	margin-bottom: 12px;
+}
+
+.submite {
+	height: 35px;
+	width: 70px;
+	font-size: 15px;
+}
+
+.submite:hover {
+	background-color: green;
+}
+
+label {
+	font-size: 20px;
+	margin-bottom: 7px;
+}
+
+.tab{
+	width: 300px;
+	height: 410px;
+	border: 3px solid black; 
+	border-radius:7px;
+	box-shadow:20px;
+	text-align: center;
+	justify-content: center;
+	margin-top: 15%;
+	margin-left: 35%;
+}
+</style>
+</head>
+<body>
+<div class="tab">
+		<table>
+			<h1>REGISTER FORM</h1>
+			<form action="Register" method="post">
+				<label>UserName : </label><br>
+				 <input type="text" name="name" />
+				<br /> 
+				<label>Email : </label><br>
+				 <input type="text" name="email" /> <br /> 
+					<label>Password : </label><br> 
+					<input type="text" name="password" /> <br />
+					 <label>Role : </label><br>
+				developer<input type="radio" name="role" value="developer" /> 
+				front end<input type="radio" name="role" value="front end" /> 
+				tester<input type="radio" name="role" value="tester" /> <br /> 
+				<label>salary : </label><br> <input type="text" name="salary" /> <br />  
+				<input class="submite" type="submit" value="Register" />
+			</form>
+		</table>
+	</div>
+</body>
+</html>

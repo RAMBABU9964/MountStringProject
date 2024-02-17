@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <h1>List of Employees</h1>
+    
+    <!-- Table for displaying employee data -->
+    <table border>
+        <thead>
+            <tr>
+                <th>EMP_ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Salary</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Employee data will be dynamically added here -->
+            <!-- Use Thymeleaf to iterate over the list of employees -->
+            <tr th:each="employee : ${employeese}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.role}"></td>
+                <td th:text="${employee.salary}"></td>
+                <td th:text="${employee.email}"></td>
+                <td>
+                    <!-- Actions for each employee -->
+                    <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
+                    <a th:href="@{/viewEmployee/{id}(id=${employee.id})}" class="btn btn-primary">View</a>
+                    <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+input {
+	margin-bottom: 10px;
+}
+
+.submite {
+	height: 35px;
+	width: 70px;
+	font-size: 15px;
+}
+
+.submite:hover {
+	background-color: green;
+}
+
+label {
+	font-size: 20px;
+	margin-bottom: 5px;
+	margin-top: 15px;
+	margin-right: 70px;
+}
+
+.container {
+	width: 300px;
+	height: 535px;
+	border: 3px solid black;
+	border-radius: 7px;
+	box-shadow: 20px;
+	text-align: center;
+	justify-content: center;
+	margin-left: 33%;
+	font-size: 20px;
+}
+
+h1 {
+	align-content: center;
+	justify-content: center;
+	margin-left: 25%;
+	margin-top: 10%;
+}
+</style>
+
+</head>
+<body>
+<h1>Update Employee Information</h1>
+<div class="container">
+  
+    <form action="#" th:action="@{/save}" th:object="${employee}" method="post">
+        <label for="id">Employee ID:</label><br>
+        <input type="text" th:field="*{id}" class="form-control mb-4 col-4"><br><br>
+        
+        <label for="name">Name:</label><br>
+        <input type="text" th:field="*{name}" class="form-control mb-4 col-4"><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="text" th:field="*{email}" class="form-control mb-4 col-4"><br><br>
+       
+        
+        
+        <label>Role : </label><br>
+	     	developer<input type="radio" th:field="*{role}" value="developer" class="form-control mb-4 col-4"/> 
+		    front end<input type="radio" th:field="*{role}" value="front end" class="form-control mb-4 col-4"/> 
+		    tester<input type="radio" th:field="*{role}" value="tester" class="form-control mb-4 col-4"/> <br><br>
+        
+        <label for="salary">Salary:</label><br>
+        <input type="text" th:field="*{salary}" class="form-control mb-4 col-4"><br><br>
+        
+        
+        
+        <label for="password">Password:</label><br>
+        <input type="text" th:field="*{password}" class="form-control mb-4 col-4"><br><br>
+        
+        <button type="submit" class="submite">Update</button>
+    </form>
+
+    </div>
+</body>
+</html>
